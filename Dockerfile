@@ -12,10 +12,10 @@ ENV WEBHOOK_URL=https://jobscanner-n8n.onrender.com/
 ENV N8N_EDITOR_BASE_URL=https://jobscanner-n8n.onrender.com/
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 ENV N8N_RUNNERS_ENABLED=true
+ENV N8N_USER_FOLDER=/home/node/.n8n
 
 # Expose dynamic port
 EXPOSE $PORT
 
-# Start n8n correctly with tini (init process)
-ENTRYPOINT ["tini", "--"]
-CMD ["n8n", "start"]
+# Start n8n directly
+CMD ["n8n"]
