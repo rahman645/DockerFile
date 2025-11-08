@@ -1,22 +1,21 @@
-# ✅ WORKING Dockerfile for Render n8n Deployment
+# ✅ Clean Render Dockerfile for n8n
 
-# 1. Use the official n8n image (includes n8n binary pre-installed)
 FROM n8nio/n8n:latest
 
-# 2. Set timezone for India
+# Set timezone to India
 ENV GENERIC_TIMEZONE="Asia/Kolkata"
 ENV TZ="Asia/Kolkata"
 
-# 3. Use Render’s dynamic port
+# Use Render's dynamic port
 ENV N8N_PORT=$PORT
 ENV WEBHOOK_URL=https://jobscanner-n8n.onrender.com/
 ENV N8N_EDITOR_BASE_URL=https://jobscanner-n8n.onrender.com/
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+ENV N8N_RUNNERS_ENABLED=true
 
-# 4. Expose the port Render injects
+# Expose dynamic port
 EXPOSE $PORT
 
-# 5. Launch using tini (init wrapper included in the base image)
+# Start n8n correctly with tini (init process)
 ENTRYPOINT ["tini", "--"]
-
-# 6. Start n8n
 CMD ["n8n", "start"]
