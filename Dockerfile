@@ -1,8 +1,8 @@
-# ✅ Clean Render Dockerfile for n8n
+# ✅ Stable Render Dockerfile for n8n (Final Fix)
 
 FROM n8nio/n8n:latest
 
-# Set timezone to India
+# Timezone
 ENV GENERIC_TIMEZONE="Asia/Kolkata"
 ENV TZ="Asia/Kolkata"
 
@@ -14,8 +14,8 @@ ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 ENV N8N_RUNNERS_ENABLED=true
 ENV N8N_USER_FOLDER=/home/node/.n8n
 
-# Expose dynamic port
+# Expose port
 EXPOSE $PORT
 
-# Start n8n directly
+# Start directly
 CMD ["n8n"]
