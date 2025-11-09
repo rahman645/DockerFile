@@ -1,5 +1,5 @@
 # ✅ Stable Render n8n Dockerfile
-FROM n8nio/n8n:1.106.3
+FROM n8nio/n8n:latest
 
 # Set timezone for India
 ENV GENERIC_TIMEZONE="Asia/Kolkata"
